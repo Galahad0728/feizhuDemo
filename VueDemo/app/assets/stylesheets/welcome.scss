@@ -1,0 +1,220 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft yahei",arial, Simsun, sans-serif;
+}
+.top-menu-wrapper{
+  height: 25px;
+  background-color: #F2F2F2;
+  border-bottom: 1px solid #e5e5e5;
+  .top-menu{
+    .top-menu-right{
+      float: right;
+      height: 25px;
+      .t_r_menu-wrapper{
+        float: left;
+        height: 25px;
+        padding: 0 6px;
+        .t_r_menu{
+          overflow: hidden;
+          height: 25px;
+          a{
+            float: left;
+            margin-right: 7px;
+            font-size: 12px;
+            color: #6C6C6C;
+            text-decoration: none;
+            height: 25px;
+            line-height: 25px;
+          }
+          i{
+            &.active{
+              transform:rotate(180deg);
+            }
+            float: left;
+            position: relative;
+            margin: 10px 0;
+            width: 6px;
+            height: 6px;
+            -moz-transition: ease-in .3s;
+            -o-transition: ease-in .3s;
+            -webkit-transition: ease-in .3s;
+            transition: ease-in .3s;
+            em{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 0;
+              border-color: rgba(255,255,255,0);
+              border-color: transparent\0;
+              _border-color: tomato;
+              _filter: chroma(color=tomato);
+              border-style: solid;
+              overflow: hidden;
+              border-width: 3px 3px 0;
+
+              top: 1px;
+              border-top-color: #6C6C6C;
+            }
+            span{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 0;
+              border-color: rgba(255,255,255,0);
+              border-color: transparent\0;
+              _border-color: tomato;
+              _filter: chroma(color=tomato);
+              border-style: solid;
+              overflow: hidden;
+              border-width: 3px 3px 0;
+
+              border-top-color: #F5F5F5;
+            }
+          }
+        }
+        .t_r_menu-list{
+          display: none;
+          border:1px solid #e5e5e5;
+          a{
+            display: block;
+            padding: 0 5px;
+            line-height: 24px;
+            white-space: nowrap;
+            color: #6C6C6C;
+            font-size: 12px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+.footer-ad-banner-wrapper{
+  position: relative;
+  .footer-ad-banner{
+    width: 100%;
+    height: 176px;
+    position: fixed;
+    left: -100%;
+    //left:0;
+    bottom: 0;
+    background-color: #051223;
+    opacity: 0.9;
+    transition: left 0.5s ease-in-out;
+    .banner{
+      margin: 0 auto;
+      width: 1190px;
+      height: 100%;
+      position: relative;
+      .ad-left-banner{
+        position: absolute;
+        left: 0;
+        height: 276px;
+        width: 670px;
+        bottom: -38px;
+      }
+      .middle-text{
+        position: absolute;
+        right: 385px;
+        top: 35px;
+        .p1{
+          color: #ffc329;
+          font-size: 40px;
+          text-align: right;
+          font-weight: bold;
+        }
+        .p2{
+          color: #fff;
+          font-size: 30px;
+          text-align: right;
+        }
+      }
+      .right-banner{
+        color: #fff;
+        font-size: 18px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 176px;
+        width: 340px;
+        .right-banner-bg{
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #fff;
+          opacity: 0.2;
+        }
+        .p1{
+          position: absolute;
+          top: 8px;
+          left: 20px;
+        }
+        .p2{
+          position: absolute;
+          top: 8px;
+          right: 40px;
+        }
+        .qrcode-wrapper{
+          top: 40px;
+          left: 20px;
+          width: 125px;
+          height: 125px;
+          position: absolute;
+          .qrcode-logo{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .download-link-wrapper{
+          position: absolute;
+          right: 20px;
+          top: 60px;
+          .download-link{
+            width: 130px;
+            height: 38px;
+            line-height: 38px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #fff;
+            margin-bottom: 10px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+      }
+      .close-banner{
+        position: absolute;
+        right: -36px;
+        top: 12px;
+        height: 28px;
+        width: 24px;
+        .close-img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+  }
+}
+.footer-ad-small-banner{
+  position: fixed;
+  left: -100%;
+  bottom: 30px;
+  width: 142px;
+  height: 142px;
+  z-index: 10;
+  transition: left 0.5s ease-in-out;
+  .small-banner{
+    width: 100%;
+    height: 100%;
+  }
+}

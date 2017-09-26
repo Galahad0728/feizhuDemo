@@ -1,0 +1,160 @@
+<div id="app">
+  <div class="top-menu-wrapper">
+    <div class="top-menu">
+      <div class="top-menu-left"></div>
+      <div class="top-menu-right">
+        <t_r_menu></t_r_menu>
+        <t_r_menu></t_r_menu>
+        <t_r_menu></t_r_menu>
+        <t_r_menu></t_r_menu>
+        <t_r_menu></t_r_menu>
+      </div>
+    </div>
+  </div>
+  <ad-banner-main v-on:hide_main_banner="handler2"></ad-banner-main>
+  <ad-banner-small v-on:show_main_banner="handler1"></ad-banner-small>
+  <div class="right-fixed-menu">
+
+  </div>
+  {{small_show}}
+</div>
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+  var template1 = {
+    template:"<div class='footer-ad-banner-wrapper'>" +
+      "<div class='footer-ad-banner'>" +
+      "<div class='banner'>" +
+      "<img src='/assets/ad-left-banner.png' class='ad-left-banner' alt=''>" +
+      "<div class='middle-text'>" +
+      "<p class='p1'>500元红包口令：飞猪</p>" +
+      "<p class='p2'>去飞猪APP-我的-口令兑换</p>" +
+      "</div>" +
+      "<div class='right-banner'>" +
+      "<div class='right-banner-bg'></div>" +
+      "<p class='p1'>手机扫描二维码</p>" +
+      "<p class='p2'>下载客户端</p>" +
+      "<div class='qrcode-wrapper'>" +
+      "<img src='/assets/qrcode-logo.png' class='qrcode-logo' alt=''>" +
+      "</div>" +
+      "<div class='download-link-wrapper'>" +
+      "<a href='' class='download-link'>iphone下载</a>" +
+      "<a href='' class='download-link'>Android下载</a>" +
+      "</div>" +
+      "</div>" +
+      "<div class='close-banner' v-on:click='close_banner_click'>" +
+      "<img src='/assets/close-banner.png' class='close-img' alt=''>" +
+      "</div>" +
+      "</div>" +
+      "</div>" +
+      "</div>",
+    props:['main_show'],
+    methods:{
+      close_banner_click:function(){
+        this.$emit('hide_main_banner');
+      }
+    }
+  }
+  var template2 = {
+    template:"<div class='footer-ad-small-banner' v-on:click='small_banner_click'>"+
+        "<img src='/assets/small-banner.png' class='small-banner'  alt=''>" +
+        "</div>",
+    props:['small_show'],
+    methods:{
+      small_banner_click:function(){
+        this.$emit('show_main_banner');
+      }
+    },
+
+  }
+  var t_r_menu_template = {
+    template:"<div class='t_r_menu-wrapper'>" +
+      "<div class='t_r_menu'>" +
+      "<a href='' v-on:mouseover='menu_hover'>我的淘宝</a>" +
+      "<i v-bind:class='{\"active\": isHover}'>" +
+      "<em></em>" +
+      "<span></span>" +
+      "</i>" +
+      "</div>" +
+      "<div class='t_r_menu-list'>" +
+      "<a href=''>已买到的宝贝</a>" +
+      "<a href=''>我的足迹</a>" +
+      "<a href=''>飞猪旅行达人</a>" +
+      "</div>" +
+      "</div>",
+    props:['t_r_menu_hover'],
+    data:function(){
+      return{
+        isHover: true
+      }
+    },
+    methods:{
+      menu_hover:function(){
+        console.log('111');
+      }
+    }
+  }
+  var app = new Vue({
+    el:"#app",
+    data:{
+      main_show:false,
+      small_show:false,
+      t_r_menu_hover:false
+    },
+    components:{
+      'ad-banner-main':template1,
+      'ad-banner-small':template2,
+      't_r_menu': t_r_menu_template,
+    },
+    computed:{
+      reversedaaa:function(){
+        return (this.aaa + 1)
+      }
+    },
+    watch:{
+      small_show:function(){
+        if(this.small_show == true){
+          $('.footer-ad-small-banner').css('left',0);
+        }else{
+          $('.footer-ad-small-banner').css('left','-100%');
+        }
+      },
+      main_show:function(){
+        if(this.main_show == true){
+          $('.footer-ad-banner').css('left','0');
+        }else{
+          $('.footer-ad-banner').css('left','-100%');
+        }
+      }
+    },
+    methods:{
+      handler1:function(){
+        this.small_show = false;
+        setTimeout(showMainAd,500);
+      },
+      handler2:function(){
+        this.main_show = false;
+        setTimeout(hideMainAd,500);
+      },
+      demo:function(){
+        return this.reversedaaa
+      }
+    }
+  })
+  window.onload = function(){
+    app.small_show = true;
+  };
+
+  var showMainAd = function(){
+    app.main_show = true;
+  }
+
+  var hideMainAd = function(){
+    app.small_show = true;
+  }
+
+
+
+</script>
